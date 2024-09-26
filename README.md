@@ -1,7 +1,7 @@
 # SC-Resume Website
 This is a personal resume website to showcase my skills, experience, and portfolio. The website includes sections for my professional summary, work experience, education, skills, projects, and contact information.
 ## Table of Contents
-- [Live Demo](#live-demo)
+- [Live Site](#live-site)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Contact](#contact)
@@ -9,18 +9,20 @@ This is a personal resume website to showcase my skills, experience, and portfol
 <!-- - [Usage](#usage) -->
 <!-- - [Contributing](#contributing) -->
 <!-- - [License](#license) -->
-## Live Demo
-Check out the live demo of the resume website here: [Live Demo Link](#)
-## Features
+## Live Site
+Check out the live site of the resume website here: [Live Site Link](https://sam.nullexport.com)
+<!-- ## Features
 - Clean and responsive design
 - Interactive portfolio section
 - Downloadable PDF version of resume
 - Contact form integration
-- SEO-friendly
+- SEO-friendly -->
 ## Technologies Used
 - **HTML5**
-- **CSS3** (with Flexbox/Grid)
-- **JavaScript** (for interactivity)
+- **CSS3** 
+- **JavaScript**
+<!-- (with Flexbox/Grid) -->
+
 <!-- - **Node.js** & **Express** (optional, for backend/contact form)
 - **EmailJS** (for handling contact form submissions) -->
 <!-- - **React.js** (optional, for dynamic content)
@@ -60,5 +62,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Contact
 If you have any questions or suggestions, feel free to reach out:
 - Email: sec252@.com
-- LinkedIn: [Samuel Chance](#)
-- GitHub: [Your GitHub Profile](#)
+- LinkedIn: [Samuel Chance](https://www.linkedin.com/in/secii/)
+- GitHub: [Your GitHub Profile](https://github.com/sec252)
