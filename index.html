@@ -1,39 +1,434 @@
 <!DOCTYPE html>
 <html lang="en">
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <head>
-        <title>Samuel Chance</title>
-        <link rel="stylesheet" href="css/style.css">
-    </head>
-    <body>
-        <nav class="navbar">
-            <div class="navbar__container">
-                <a href="images/" id="navbar__logo">Sam</a>
-                <div class="navbar__toggle" id="mobil-menu"></div>
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Samuel Chance | NullExport</title>
+    <!-- ===== CSS Files ===== -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/skins/green.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- ===== Main Container Start ===== -->
+    <div class="main-container">
+      <!-- ===== Aside Start ===== -->
+      <div class="aside">
+        <div class="logo">
+          <a href="/">Chance</a>
+        </div>
+        <div class="nav-toggler">
+          <span></span>
+        </div>
+        <ul class="nav">
+          <li>
+            <a href="#home" class="active"><i class="fa fa-home"></i> Home</a>
+          </li>
+          <li>
+            <a href="#about"><i class="fa fa-user"></i> About</a>
+          </li>
+          <li>
+            <a href="#project"><i class="fa fa-briefcase"></i>Projects</a>
+          </li>
+          <li>
+            <a href="https://nullexport.substack.com/" target="_blank">
+              <i class="fa fa-book"></i>Blog <i class="fa-solid fa-up-right-from-square fa-2xs"></i></a>
+          </li>
+          <li>
+            <a href="#contact"><i class="fa fa-comments"></i>Contact</a>
+          </li>
+        </ul>
+      </div>
+      <!-- ===== Aside End ===== -->
+      <!-- ===== Main Content Start ===== -->
+      <div class="main-content">
+        <!-- ===== Home Section Start ===== -->
+        <section class="home active section" id="home">
+          <div class="container">
+            <div class="row">
+              <div class="home-info padd-15">
+                <h3 class="hello">
+                  Hi, my name is <span vlass="name">Samuel Chance</span>
+                </h3>
+                <h3 class="my-profession">
+                  I'm a <span class="typing">Systems Engineer</span>
+                </h3>
+                <p>
+                  I love building secure, scalable systems and finding ways to
+                  automate infrastructure to make everything run smoother.
+                  Security is always top of mind, and I’m excited to dive deeper
+                  into cybersecurity—especially exploring vulnerabilities and
+                  getting into red team work.
+                </p>
+                <a
+                  href="/files/SamChance_SYENG_Q3_Resume.pdf"
+                  download
+                  class="btn"
+                  >Download Resume</a
+                >
+              </div>
+              <div class="home-img padd-15">
+                <img src="images/headshot_2019.jpg" alt="" />
+              </div>
             </div>
-            <ul class="navbar__menu">
-                <li class="navbar__item">
-                    <a href="/" class="navbar__links">Home</a>
-                </li>
-                <li class="navbar__item">
-                    <a href="/resume.html" class="navbar__links">Resume</a>
-                </li>
-                <li class="navbar__item">
-                    <a href="https://nullexport.substack.com/" target="_blank" class="navbar__links">Blog</a>
-                </li>
-                <li class="navbar__item">
-                    <a href="/projects.html" class="navbar__links">Projects</a>
-                </li>
-                <li class="navbar__item">
-                    <a href="/contact.html" class="navbar__links">Contact</a>
-                </li>
-            </ul>
-        </nav>
-        <h1>Hi!</h1>
-        <p>My name is Samuel Chance. I am a software developer.</p>
-    </body>
+          </div>
+        </section>
+        <!-- ===== Home Section End ===== -->
+        <!-- ===== About Section Start ===== -->
+        <section class="about section" id="about">
+          <div class="container">
+            <div class="row">
+              <div class="section-title padd-15">
+                <h2>More About Me</h2>
+              </div>
+            </div>
+            <div class="row">
+              <div class="about-content padd-15">
+                <div class="row">
+                  <div class="about-text padd-15">
+                    <h3>
+                      I'm Samuel Chance a <span>Sr. Systems Engineer</span>
+                    </h3>
+                    <p>
+                      I’m Samuel Chance, a Systems Engineer with a deep passion
+                      for cloud infrastructure, automation, and cybersecurity,
+                      with the goal of becoming a security researcher or red
+                      teamer. Throughout my career, I’ve held roles that allowed
+                      me to streamline complex deployments and improve system
+                      security. As a Sr. Web Systems Engineer at Market
+                      America-SHOP.COM, I enhanced network operations and
+                      safeguarded systems against breaches. At Invisible AI, I
+                      scaled and monitored edge deployments, and at Prometheus
+                      Group, I reduced deployment times by 50% using tools like
+                      GitLab CI, Terraform, and Helm. My passion for
+                      cybersecurity drives me to constantly explore
+                      vulnerabilities and innovate solutions, aligning with my
+                      long-term goal of contributing to the field as a red
+                      teamer.
+                    </p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="personal-info padd-15">
+                    <div class="row">
+                      <!-- <div class="info-item padd-15">
+                        <p>Birthday : <span>17 sep 1999</span></p>
+                      </div> -->
+                      <!-- <div class="info-item padd-15">
+                        <p>Age : <span>22</span></p>
+                      </div> -->
+                      <!-- <div class="info-item padd-15">
+                        <p>Website : <span>www.domain.com</span></p>
+                      </div>
+                      <div class="info-item padd-15">
+                        <p>Email : <span>info@gmail.com</span></p>
+                      </div> -->
+                      <div class="info-item padd-15">
+                        <p>
+                          Education :
+                          <span
+                            >B.S. Computer Science | Winston Salem State
+                            University</span
+                          >
+                        </p>
+                      </div>
+                      <!-- <div class="info-item padd-15">
+                        <p>Phone : <span>+17 678 1999</span></p>
+                      </div> -->
+                      <div class="info-item padd-15">
+                        <p>City : <span>Winston-Salem, NC</span></p>
+                      </div>
+                      <div class="info-item padd-15">
+                        <p>Email : <span>sec252@gmail.com</span></p>
+                      </div>
+                    </div>
+                  </div>
+                  <!--
+                   Replace this section with a tag cloud.
+                   May need to add css grid or flexGrid to make it look nice. 
+                   populated by skills scraped from linkedIn profile
+
+                   reference: 
+                   - https://github.com/josephlimtech/linkedin-profile-scraper-api
+                   - https://www.w3schools.com/howto/howto_css_tag_cloud.asp
+                    -->
+
+                  <div class="experience padd-15">
+                    <h3 class="title">Experience</h3>
+                    <div class="row">
+                      <div class="timeline-box padd-15">
+                        <div class="timeline shadow-dark">
+                          <!-- ===== timeline item ===== -->
+                          <div class="timeline-item">
+                            <div class="circle-dot"></div>
+                            <h3 class="timeline-date">
+                              <i class="fa fa-calendar"></i> October 2023 -
+                              September 2024
+                            </h3>
+                            <h4 class="timeline-title">
+                              Market America - SHOP.COM
+                              <span class="timeline-job-title"
+                                >| Sr. Web Systems Engineer</span
+                              >
+                            </h4>
+                            <ul class="timeline-list">
+                              <li>
+                                Manage IT functions to support hardware,software
+                                and network systems.
+                              </li>
+                              <li>
+                                Applied regular patches and reviewed breach
+                                attempts to keep systems protected against
+                                emerging security threats.
+                              </li>
+                              <li>
+                                Improve network operations by recommending and
+                                implementing proactive hardware, software and
+                                policy updates.
+                              </li>
+                              <li>
+                                Administer, proactively monitor, and
+                                troubleshoot applications to prevent and correct
+                                any issues.
+                              </li>
+                            </ul>
+                          </div>
+                          <!-- ===== timeline item ===== -->
+                          <div class="timeline-item">
+                            <div class="circle-dot"></div>
+                            <h3 class="timeline-date">
+                              <i class="fa fa-calendar"></i> December 2022 -
+                              August 2023
+                            </h3>
+                            <h4 class="timeline-title">
+                              Invisible AI
+                              <span class="timeline-job-title"
+                                >| Infrastructure Engineer</span
+                              >
+                            </h4>
+                            <ul class="timeline-list">
+                              <li>
+                                Monitored and maintained an increasing number of
+                                edge deployments, totaling in the tens.
+                              </li>
+                              <li>
+                                Supported clients in issue resolution,
+                                coordinating in-person consultations to
+                                troubleshoot and diagnose hardware problems.
+                              </li>
+                              <li>
+                                Deployed, maintained and monitored edge
+                                operating environments.
+                              </li>
+                              <li>
+                                Identified network, hardware and software
+                                problems and promptly implemented solutions.
+                              </li>
+                              <li>
+                                Developed scalable technology for deploying,
+                                operating, and monitoring software across
+                                diverse deployments and devices.
+                              </li>
+                            </ul>
+                          </div>
+                          <!-- ===== timeline item ===== -->
+                          <div class="timeline-item">
+                            <div class="circle-dot"></div>
+                            <h3 class="timeline-date">
+                              <i class="fa fa-calendar"></i> March 2022 -
+                              December 2022
+                            </h3>
+                            <h4 class="timeline-title">
+                              Prometheus Group
+                              <span class="timeline-job-title"
+                                >| Cloud Deployment Specialist</span
+                              >
+                            </h4>
+                            <ul class="timeline-list">
+                              <li>
+                                Served as technical resource to field personnel
+                                for deployment issues.
+                              </li>
+                              <li>
+                                Delivered end-to-end infrastructure management
+                                solutions in a cloud environment.
+                              </li>
+                              <li>
+                                Automated deployment of cloud infrastructure
+                                using Gitlab-CI, ArgoCD, Terraform, and Helm for
+                                20+ environments.
+                              </li>
+                              <li>
+                                Improved processes to reduce deployment times by
+                                50%.
+                              </li>
+                              <li>
+                                Developed scripts to assist and automate
+                                software deployment and maintenance tasks.
+                              </li>
+                            </ul>
+                          </div>
+                          <!-- ===== timeline item ===== -->
+                          <div class="timeline-item">
+                            <div class="circle-dot"></div>
+                            <h3 class="timeline-date">
+                              <i class="fa fa-calendar"></i> July 2020 -
+                              February 2022
+                            </h3>
+                            <h4 class="timeline-title">
+                              Point3 Security INC.
+                              <span class="timeline-job-title"
+                                >| Software Engineer</span
+                              >
+                            </h4>
+                            <ul class="timeline-list">
+                              <li>
+                                Coordinate/Automate network operations,
+                                maintenance, repairs, and upgrades using
+                                Ansible, AWX, and Gitlab CI/CD pipelines.
+                              </li>
+                              <li>
+                                Installed and configured software applications
+                                like Gitlab, Youtrack, and Nextcloud.
+                              </li>
+                              <li>
+                                Assess/Mitigate threats, risks, and
+                                vulnerabilities from emerging security issues to
+                                advise pertinent stakeholders on appropriate
+                                measures.
+                              </li>
+                              <li>
+                                Designed API fuzzer in python to break into a
+                                security-protected application to probe for
+                                vulnerabilities.
+                              </li>
+                              <li>
+                                Successfully discovered and fixed over 30
+                                bugs/vulnerabilities, while conducting an
+                                internal penetration test.
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- ===== About Section End ===== -->
+
+        <!-- ===== project Section Start ===== -->
+        <section class="project section" id="project">
+          <div class="container">
+            <div class="row">
+              <div class="section-title padd-15">
+                <h2>Projects (Coming Soon!)</h2>
+              </div>
+            </div>
+            <div class="row">
+              <div class="project-heading padd-15"></div>
+            </div>
+            <div class="row">
+              <!-- ====== project item start ====== -->
+              <div class="project-item padd-15">
+                <div class="project-item-inner shadow-dark">
+                  <div class="project-img">
+                    <img src="images/project/project-1.jpg" alt="" />
+                  </div>
+                </div>
+              </div>
+              <!-- ====== project item End ====== -->
+              <!-- ====== project item start ====== -->
+              <div class="project-item padd-15">
+                <div class="project-item-inner shadow-dark">
+                  <div class="project-img">
+                    <img src="images/project/project-2.jpg" alt="" />
+                  </div>
+                </div>
+              </div>
+              <!-- ====== project item End ====== -->
+              <!-- ====== project item start ====== -->
+              <div class="project-item padd-15">
+                <div class="project-item-inner shadow-dark">
+                  <div class="project-img">
+                    <img src="images/project/project-3.jpg" alt="" />
+                  </div>
+                </div>
+              </div>
+              <!-- ====== project item End ====== -->
+              <!-- ====== project item start ====== -->
+              <div class="project-item padd-15">
+                <div class="project-item-inner shadow-dark">
+                  <div class="project-img">
+                    <img src="images/project/project-4.jpg" alt="" />
+                  </div>
+                </div>
+              </div>
+              <!-- ====== project item End ====== -->
+              <!-- ====== project item start ====== -->
+              <div class="project-item padd-15">
+                <div class="project-item-inner shadow-dark">
+                  <div class="project-img">
+                    <img src="images/project/project-5.jpg" alt="" />
+                  </div>
+                </div>
+              </div>
+              <!-- ====== project item End ====== -->
+              <!-- ====== project item start ====== -->
+              <div class="project-item padd-15">
+                <div class="project-item-inner shadow-dark">
+                  <div class="project-img">
+                    <img src="images/project/project-6.jpg" alt="" />
+                  </div>
+                </div>
+              </div>
+              <!-- ====== project item End ====== -->
+            </div>
+          </div>
+        </section>
+        <!-- ===== project Section End ===== -->
+        <!-- ===== Contact Section Start ===== -->
+        <section class="contact section" id="contact">
+          <div class="container">
+            <div class="row">
+              <div class="section-title padd-15">
+                <h2>Contact Me</h2>
+              </div>
+            </div>
+            <h3 class="contact-title padd-15">If You Want To Work With Me</h3>
+            <h4 class="contact-sub-title padd-15">Here's Where You Can Reach Me</h4>
+            <div class="row"></div>
+            <h4 class="contact-sub-title padd-15"></h4>
+            <!-- <h4 class="contact-sub-title padd-15">
+              I WILL GET BACK WITH YOU AS SOON AS POSSIBLE!
+            </h4> -->
+            <div class="row">
+               <div class="contact-info-item padd-15">
+                <div class="icon"><i class="fa fa-envelope"></i></div>
+                <h4>Email</h4>
+                <p>sec252@gmail.com</p>
+              </div>
+               <div class="contact-info-item padd-15">
+                <div class="icon"><i class="fab fa-linkedin"></i></div>
+                <h4>linkedIn</h4>
+                <a href="https://www.linkedin.com/in/secii/" target="_blank" class="a">Samuel Chance <i class="fa-solid fa-up-right-from-square fa-2xs"></i> </a>
+              </div>
+      <!-- ===== Main Content End ===== -->
+    </div>
+    <!-- ===== Main Container End ===== -->
+    <!-- ===== JS Files ===== -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="js/script.js"></script>
+    <!-- <script src="js/style-switcher.js"></script> -->
+  </body>
 </html>
