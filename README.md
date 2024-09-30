@@ -2,8 +2,8 @@
 This is a personal resume website to showcase my skills, experience, and portfolio. The website includes sections for my professional summary, work experience, education, skills, projects, and contact information.
 ## Table of Contents
 - [Live Site](#live-site)
-- [Features](#features)
 - [Technologies Used](#technologies-used)
+- [Features](#features)
 - [Contact](#contact)
 <!-- - [Installation](#installation) -->
 <!-- - [Usage](#usage) -->
@@ -11,12 +11,8 @@ This is a personal resume website to showcase my skills, experience, and portfol
 <!-- - [License](#license) -->
 ## Live Site
 Check out the live site of the resume website here: [Live Site Link](https://sam.nullexport.com)
-<!-- ## Features
-- Clean and responsive design
-- Interactive portfolio section
+ ## Features
 - Downloadable PDF version of resume
-- Contact form integration
-- SEO-friendly -->
 ## Technologies Used
 - **HTML5**
 - **CSS3** 
@@ -61,6 +57,6 @@ If you'd like to contribute to this project:
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details. -->
 ## Contact
 If you have any questions or suggestions, feel free to reach out:
-- Email: sec252@.com
+- Email: sec252@gmail.com
 - LinkedIn: [Samuel Chance](https://www.linkedin.com/in/secii/)
-- GitHub: [Your GitHub Profile](https://github.com/sec252)
+- GitHub: [GitHub Profile](https://github.com/sec252)
