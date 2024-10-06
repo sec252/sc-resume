@@ -17,6 +17,8 @@ Check out the live site of the resume website here: [Live Site Link](https://sam
 - **HTML5**
 - **CSS3** 
 - **JavaScript**
+- **GitHub Pages**
+- **GitHub Actions**
 <!-- (with Flexbox/Grid) -->
 
 <!-- - **Node.js** & **Express** (optional, for backend/contact form)
@@ -59,4 +61,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 If you have any questions or suggestions, feel free to reach out:
 - Email: sec252@gmail.com
 - LinkedIn: [Samuel Chance](https://www.linkedin.com/in/secii/)
-- GitHub: [GitHub Profile](https://github.com/sec252)
