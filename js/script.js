@@ -21,12 +21,23 @@ const nav = document.querySelector(".nav"),
   totalSection = allSection.length;
 for (let i = 0; i < totalNavList; i++) {
   const a = navList[i].querySelector("a");
-  a.addEventListener("click", function () {
+  a.addEventListener("click", function (event) {
+    // Check if the link is external by inspecting the href
+    const href = a.getAttribute("href");
+    if (href.startsWith("http")) {
+      // If it's an external link, do nothing and let the default behavior happen
+      return;
+    }
+
+    event.preventDefault(); // Prevent default anchor behavior
     removeBackSection();
     for (let j = 0; j < totalNavList; j++) {
       if (navList[j].querySelector("a").classList.contains("active")) {
-        addBackSection(j);
-        allSection[j].classList.add("back-section");
+        // Ensure that navList[j] has a corresponding section in allSection
+        if (allSection[j]) {
+          addBackSection(j);
+          allSection[j].classList.add("back-section");
+        }
       }
       navList[j].querySelector("a").classList.remove("active");
     }
@@ -50,6 +61,7 @@ function showSection(element) {
     allSection[i].classList.remove("active");
   }
   const target = element.getAttribute("href").split("#")[1];
+  console.log("Navigating to:", target);
   document.querySelector("#" + target).classList.add("active");
 }
 function updateNav(element) {
