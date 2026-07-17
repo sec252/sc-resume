@@ -95,7 +95,10 @@ import { site } from "../data/site";
 
   /* Hexagon frame: outer div carries the glow (clip-path would otherwise
      clip a box-shadow), .hex is the clipped accent "border" ring made from
-     padding + background, and the image gets its own matching clip. */
+     padding + background, and the image gets its own matching clip. Both
+     .hex and the image share a vertical mask so the border dissolves away
+     over the top half instead of stopping at a hard edge, and the photo
+     fades out with it rather than staying hard-clipped underneath. */
   .hero-img {
     flex-shrink: 0;
     width: 300px;
@@ -109,6 +112,13 @@ import { site } from "../data/site";
     padding: 4px;
     background: var(--accent);
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    -webkit-mask-image: linear-gradient(
+      to top,
+      #000 0%,
+      #000 35%,
+      transparent 85%
+    );
+    mask-image: linear-gradient(to top, #000 0%, #000 35%, transparent 85%);
   }
 
   .hex img {
@@ -117,6 +127,13 @@ import { site } from "../data/site";
     object-fit: cover;
     display: block;
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    -webkit-mask-image: linear-gradient(
+      to top,
+      #000 0%,
+      #000 35%,
+      transparent 85%
+    );
+    mask-image: linear-gradient(to top, #000 0%, #000 35%, transparent 85%);
   }
 
   @media (max-width: 47rem) {
