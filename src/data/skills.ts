@@ -25,7 +25,7 @@ export const skills: SkillGroup[] = [
   },
   {
     category: "Monitoring & Observability",
-    items: ["Prometheus", "Grafana", "Zabbix"],
+    items: ["Prometheus", "Grafana", "Grafana Alloy", "Loki", "Zabbix"],
   },
   {
     category: "Cloud Platforms",
