@@ -8,6 +8,13 @@ export interface Job {
 
 export const experience: Job[] = [
   {
+    company: "PlanSource",
+    role: "Sr. DevOps Engineer",
+    start: "April 2025",
+    end: "Present",
+    bullets: [],
+  },
+  {
     company: "Market America - SHOP.COM",
     role: "Sr. Web Systems Engineer",
     start: "October 2023",

@@ -12,11 +12,13 @@ import { experience } from "../data/experience";
         <h3>
           {job.company} <span class="role">| {job.role}</span>
         </h3>
-        <ul>
-          {job.bullets.map((bullet) => (
-            <li>{bullet}</li>
-          ))}
-        </ul>
+        {job.bullets.length > 0 && (
+          <ul>
+            {job.bullets.map((bullet) => (
+              <li>{bullet}</li>
+            ))}
+          </ul>
+        )}
       </li>
     ))
   }
