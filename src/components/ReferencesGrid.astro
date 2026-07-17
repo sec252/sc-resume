@@ -27,7 +27,7 @@ import { site } from "../data/site";
             ) : (
               reference.name
             )}
-            <span class="title">{reference.title}</span>
+            {reference.title && <span class="title">{reference.title}</span>}
           </p>
         </li>
       ))}

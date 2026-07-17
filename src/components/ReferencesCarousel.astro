@@ -1,0 +1,145 @@
+---
+import { references } from "../data/references";
+---
+
+<div class="carousel">
+  <button class="nav prev" type="button" aria-label="Previous recommendation">
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M15 18l-6-6 6-6"></path>
+    </svg>
+  </button>
+
+  <ul class="track" tabindex="0" aria-label="Recommendations">
+    {
+      references.map((reference) => (
+        <li>
+          <p class="quote">“{reference.quote}”</p>
+          <p class="attribution">
+            {reference.name}
+            {reference.title && <span class="title"> · {reference.title}</span>}
+          </p>
+        </li>
+      ))
+    }
+  </ul>
+
+  <button class="nav next" type="button" aria-label="Next recommendation">
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M9 18l6-6-6-6"></path>
+    </svg>
+  </button>
+</div>
+
+<style>
+  .carousel {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .track {
+    display: flex;
+    gap: 1.25rem;
+    list-style: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    padding: 0.25rem;
+  }
+
+  .track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .track > li {
+    flex: 0 0 min(22rem, 85vw);
+    scroll-snap-align: start;
+    padding: 1.5rem;
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    display: grid;
+    gap: 0.75rem;
+    align-content: start;
+  }
+
+  .quote {
+    color: var(--text);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .attribution {
+    color: var(--text-strong);
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .title {
+    color: var(--text-muted);
+    font-weight: 400;
+    font-size: 0.85rem;
+  }
+
+  .nav {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--bg-alt);
+    color: var(--text);
+    cursor: pointer;
+  }
+
+  .nav:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  @media (max-width: 40rem) {
+    .nav {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  const track = document.querySelector<HTMLUListElement>(".track");
+  const prev = document.querySelector<HTMLButtonElement>(".prev");
+  const next = document.querySelector<HTMLButtonElement>(".next");
+
+  function scrollByCard(direction: number) {
+    if (!track) return;
+    const card = track.querySelector("li");
+    const gap = 20;
+    const amount = (card?.clientWidth ?? 320) + gap;
+    track.scrollBy({ left: direction * amount, behavior: "smooth" });
+  }
+
+  prev?.addEventListener("click", () => scrollByCard(-1));
+  next?.addEventListener("click", () => scrollByCard(1));
+</script>

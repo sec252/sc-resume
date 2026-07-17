@@ -1,8 +1,29 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../components/Hero.astro";
+import ReferencesCarousel from "../components/ReferencesCarousel.astro";
+import { references } from "../data/references";
 ---
 
 <BaseLayout>
   <Hero />
+  {
+    references.length > 0 && (
+      <section class="recommendations container" aria-labelledby="recs-heading">
+        <h2 id="recs-heading">Recommendations</h2>
+        <ReferencesCarousel />
+      </section>
+    )
+  }
 </BaseLayout>
+
+<style>
+  .recommendations {
+    padding: 1rem 0 4rem;
+  }
+
+  .recommendations h2 {
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    margin-bottom: 1.5rem;
+  }
+</style>
