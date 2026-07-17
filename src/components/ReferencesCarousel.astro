@@ -59,12 +59,13 @@ import { references } from "../data/references";
 
   .track {
     display: flex;
-    gap: 1.25rem;
+    flex: 1;
+    min-width: 0;
+    gap: 0;
     list-style: none;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
-    padding: 0.25rem;
   }
 
   .track::-webkit-scrollbar {
@@ -72,21 +73,22 @@ import { references } from "../data/references";
   }
 
   .track > li {
-    flex: 0 0 min(22rem, 85vw);
+    flex: 0 0 100%;
+    width: 100%;
     scroll-snap-align: start;
-    padding: 1.5rem;
+    padding: 1.25rem 1.75rem;
     background: var(--bg-alt);
     border: 1px solid var(--border);
     border-radius: var(--radius);
     display: grid;
-    gap: 0.75rem;
-    align-content: start;
+    gap: 0.5rem;
+    align-content: center;
   }
 
   .quote {
     color: var(--text);
     font-size: 0.95rem;
-    line-height: 1.6;
+    line-height: 1.55;
   }
 
   .attribution {
@@ -135,8 +137,7 @@ import { references } from "../data/references";
   function scrollByCard(direction: number) {
     if (!track) return;
     const card = track.querySelector("li");
-    const gap = 20;
-    const amount = (card?.clientWidth ?? 320) + gap;
+    const amount = card?.clientWidth ?? track.clientWidth;
     track.scrollBy({ left: direction * amount, behavior: "smooth" });
   }
 
