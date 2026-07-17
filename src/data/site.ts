@@ -3,14 +3,14 @@ export const site = {
   logo: "Chance",
   title: "Sam Chance | NullExport",
   description:
-    "Samuel Chance — DevOps engineer focused on secure, scalable infrastructure, automation, and vulnerability research.",
+    "Samuel Chance — DevOps engineer focused on designing secure, automated, scalable, and reliable infrastructure for complex systems.",
   typedTitles: ["DevOps Engineer"],
   staticTitle: "DevOps Engineer",
   intro:
-    "I love building secure, scalable systems and finding ways to automate infrastructure to make everything run smoother. Security is always top of mind, and I’m always excited to dive deeper into cybersecurity—especially exploring vulnerabilities and getting into red team work.",
-  aboutHeading: "I'm Sam Chance, a Sr. Systems Engineer",
+    "I love building secure, scalable systems and developing workflows to automate infrastructure deployment and management.",
+  aboutHeading: "I'm Sam Chance, a Sr. DevOps Engineer",
   aboutText:
-    "I’m passionate about cybersecurity, with a focus on vulnerability research. My experience spans across various domains in computer science, from systems architecture to security analytics, allowing me to approach vulnerabilities from a holistic perspective. I’m quick to adapt to new technologies and thrive on solving complex problems. My goal is to identify vulnerabilities and help create more secure systems that stay ahead of potential threats.",
+    "I build and maintain the infrastructure that keeps modern applications shipping reliably — from CI/CD pipelines and container orchestration to the observability stacks that catch problems before they become outages. My background spans cloud platforms, infrastructure as code, and systems engineering, with a security-minded lens shaped by earlier work in vulnerability research. I’m most in my element automating away repetitive toil, tightening the feedback loop between code and production, and designing systems that stay resilient under real-world conditions.",
   education: "B.S. Computer Science | Winston Salem State University",
   location: "North Carolina",
   email: "sec252@gmail.com",
