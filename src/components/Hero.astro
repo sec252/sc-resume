@@ -10,7 +10,9 @@ import { site } from "../data/site";
       <p class="hello">Hi, my name is</p>
       <h1>{site.name}</h1>
       <p class="profession" aria-hidden="true">
-        I'm a <span class="typing" data-titles={JSON.stringify(site.typedTitles)}
+        I'm a <span
+          class="typing"
+          data-titles={JSON.stringify(site.typedTitles)}
           >{site.staticTitle}</span
         ><span class="caret"></span>
       </p>
