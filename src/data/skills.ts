@@ -13,15 +13,19 @@ export const skills: SkillGroup[] = [
     items: [
       "Git",
       "Ansible",
+      "SaltStack",
       "Terraform",
       "Docker",
       "Kubernetes",
       "Helm",
-      "Gitlab",
+      "Gitlab CI/CD",
       "Openshift",
-      "Kafka",
       "Rancher",
     ],
+  },
+  {
+    category: "Monitoring & Observability",
+    items: ["Prometheus", "Grafana", "Zabbix"],
   },
   {
     category: "Cloud Platforms",
