@@ -93,13 +93,52 @@ import { site } from "../data/site";
 
   .hero-img {
     flex-shrink: 0;
+    position: relative;
+    --bracket-size: 30px;
+    --bracket-thickness: 3px;
+    --bracket-offset: 12px;
   }
 
   .hero-img img {
     width: 320px;
-    border-radius: 50%;
-    border: 3px solid var(--accent);
+    border-radius: 14px;
     box-shadow: 0 0 60px var(--accent-soft);
+  }
+
+  /* HUD-style corner brackets: 8 gradient strips, 2 per corner */
+  .hero-img::before {
+    content: "";
+    position: absolute;
+    inset: calc(-1 * var(--bracket-offset));
+    pointer-events: none;
+    background-image:
+      linear-gradient(var(--accent), var(--accent)),
+      linear-gradient(var(--accent), var(--accent)),
+      linear-gradient(var(--accent), var(--accent)),
+      linear-gradient(var(--accent), var(--accent)),
+      linear-gradient(var(--accent), var(--accent)),
+      linear-gradient(var(--accent), var(--accent)),
+      linear-gradient(var(--accent), var(--accent)),
+      linear-gradient(var(--accent), var(--accent));
+    background-size:
+      var(--bracket-size) var(--bracket-thickness),
+      var(--bracket-thickness) var(--bracket-size),
+      var(--bracket-size) var(--bracket-thickness),
+      var(--bracket-thickness) var(--bracket-size),
+      var(--bracket-size) var(--bracket-thickness),
+      var(--bracket-thickness) var(--bracket-size),
+      var(--bracket-size) var(--bracket-thickness),
+      var(--bracket-thickness) var(--bracket-size);
+    background-position:
+      top left,
+      top left,
+      top right,
+      top right,
+      bottom left,
+      bottom left,
+      bottom right,
+      bottom right;
+    background-repeat: no-repeat;
   }
 
   @media (max-width: 47rem) {
@@ -111,6 +150,8 @@ import { site } from "../data/site";
 
     .hero-img {
       align-self: center;
+      --bracket-size: 24px;
+      --bracket-offset: 10px;
     }
 
     .hero-img img {
