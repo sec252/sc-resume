@@ -1,0 +1,87 @@
+---
+import { experience } from "../data/experience";
+---
+
+<ol class="timeline">
+  {
+    experience.map((job) => (
+      <li>
+        <p class="date">
+          {job.start} – {job.end}
+        </p>
+        <h3>
+          {job.company} <span class="role">| {job.role}</span>
+        </h3>
+        <ul>
+          {job.bullets.map((bullet) => (
+            <li>{bullet}</li>
+          ))}
+        </ul>
+      </li>
+    ))
+  }
+</ol>
+
+<style>
+  .timeline {
+    list-style: none;
+    position: relative;
+    padding-left: 1.5rem;
+    display: grid;
+    gap: 2.25rem;
+  }
+
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 0.3rem;
+    top: 0.4rem;
+    bottom: 0.4rem;
+    width: 1px;
+    background: var(--border);
+  }
+
+  .timeline > li {
+    position: relative;
+  }
+
+  .timeline > li::before {
+    content: "";
+    position: absolute;
+    left: -1.47rem;
+    top: 0.35rem;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  .date {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-family: var(--font-display);
+    letter-spacing: 0.03em;
+    margin-bottom: 0.35rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .role {
+    color: var(--accent);
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+
+  ul {
+    list-style: disc;
+    padding-left: 1.1rem;
+    list-style-position: outside;
+    display: grid;
+    gap: 0.35rem;
+    color: var(--text);
+    font-size: 0.95rem;
+  }
+</style>

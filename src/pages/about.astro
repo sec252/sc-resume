@@ -1,0 +1,91 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SkillsCloud from "../components/SkillsCloud.astro";
+import ExperienceTimeline from "../components/ExperienceTimeline.astro";
+import { site } from "../data/site";
+---
+
+<BaseLayout
+  title={`About | ${site.name}`}
+  description={`About ${site.name}: background, skills, and professional experience.`}
+>
+  <div class="container">
+    <h1 class="section-title">More About Me</h1>
+
+    <section class="about" aria-label="Bio">
+      <h2 class="about-heading">{site.aboutHeading}</h2>
+      <p>{site.aboutText}</p>
+      <dl class="facts">
+        <div>
+          <dt>Education</dt>
+          <dd>{site.education}</dd>
+        </div>
+        <div>
+          <dt>City</dt>
+          <dd>{site.city}</dd>
+        </div>
+        <div>
+          <dt>Email</dt>
+          <dd><a href={`mailto:${site.email}`}>{site.email}</a></dd>
+        </div>
+      </dl>
+    </section>
+
+    <section aria-labelledby="skills-heading">
+      <h2 id="skills-heading">Skills</h2>
+      <SkillsCloud />
+    </section>
+
+    <section aria-labelledby="experience-heading">
+      <h2 id="experience-heading">Experience</h2>
+      <ExperienceTimeline />
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .container {
+    padding-top: 3rem;
+  }
+
+  section {
+    margin-top: 2.5rem;
+  }
+
+  .about-heading {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+
+  section > h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .facts {
+    margin-top: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    gap: 1rem;
+  }
+
+  .facts > div {
+    padding: 1rem 1.25rem;
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+  }
+
+  dt {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-bottom: 0.25rem;
+  }
+
+  dd {
+    color: var(--text-strong);
+    font-size: 0.95rem;
+  }
+</style>

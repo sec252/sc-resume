@@ -1,0 +1,153 @@
+---
+import { Image } from "astro:assets";
+import heroImage from "../assets/hero.jpg";
+import { site } from "../data/site";
+---
+
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-info">
+      <p class="hello">Hi, my name is</p>
+      <h1>{site.name}</h1>
+      <p class="profession" aria-hidden="true">
+        I'm a <span class="typing" data-titles={JSON.stringify(site.typedTitles)}
+          >{site.staticTitle}</span
+        ><span class="caret"></span>
+      </p>
+      <p class="visually-hidden">I'm a {site.staticTitle}</p>
+      <p class="intro">{site.intro}</p>
+      <a href={site.resume.path} download class="btn">{site.resume.label}</a>
+    </div>
+    <div class="hero-img">
+      <Image
+        src={heroImage}
+        alt={`Portrait of ${site.name}`}
+        width={640}
+        widths={[320, 480, 640]}
+        sizes="(max-width: 47rem) 70vw, 320px"
+        loading="eager"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding: clamp(3rem, 9vh, 6rem) 0 2rem;
+  }
+
+  .hero-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+  }
+
+  .hello {
+    color: var(--accent);
+    font-family: var(--font-display);
+    font-size: 1rem;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.75rem;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 6vw, 3.2rem);
+    margin-bottom: 0.75rem;
+  }
+
+  .profession {
+    font-family: var(--font-display);
+    font-size: clamp(1.1rem, 3vw, 1.5rem);
+    color: var(--text-strong);
+    margin-bottom: 1.5rem;
+    min-height: 1.5em;
+  }
+
+  .typing {
+    color: var(--accent);
+  }
+
+  .caret {
+    display: inline-block;
+    width: 2px;
+    height: 1.1em;
+    margin-left: 3px;
+    vertical-align: text-bottom;
+    background: var(--accent);
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+
+  .intro {
+    margin-bottom: 2rem;
+    color: var(--text);
+  }
+
+  .hero-img {
+    flex-shrink: 0;
+  }
+
+  .hero-img img {
+    width: 320px;
+    border-radius: 50%;
+    border: 3px solid var(--accent);
+    box-shadow: 0 0 60px var(--accent-soft);
+  }
+
+  @media (max-width: 47rem) {
+    .hero-inner {
+      flex-direction: column-reverse;
+      align-items: flex-start;
+      gap: 2rem;
+    }
+
+    .hero-img {
+      align-self: center;
+    }
+
+    .hero-img img {
+      width: min(70vw, 260px);
+    }
+  }
+</style>
+
+<script>
+  const el = document.querySelector<HTMLElement>(".typing");
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (el && !reduced) {
+    const titles: string[] = JSON.parse(el.dataset.titles ?? "[]");
+    let titleIndex = Math.max(0, titles.indexOf(el.textContent?.trim() ?? ""));
+    let charIndex = titles[titleIndex]?.length ?? 0;
+    let deleting = true;
+
+    function tick() {
+      const title = titles[titleIndex] ?? "";
+      if (deleting) {
+        charIndex--;
+        if (charIndex <= 0) {
+          deleting = false;
+          titleIndex = (titleIndex + 1) % titles.length;
+        }
+      } else {
+        charIndex++;
+        if (charIndex >= title.length) {
+          deleting = true;
+          setTimeout(tick, 2000);
+          el!.textContent = title;
+          return;
+        }
+      }
+      el!.textContent = (titles[titleIndex] ?? "").slice(0, charIndex);
+      setTimeout(tick, deleting ? 40 : 70);
+    }
+
+    setTimeout(tick, 2000);
+  }
+</script>
