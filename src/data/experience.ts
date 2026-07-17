@@ -12,7 +12,11 @@ export const experience: Job[] = [
     role: "Sr. DevOps Engineer",
     start: "April 2025",
     end: "Present",
-    bullets: [],
+    bullets: [
+      "Deployed and hardened Kubernetes observability infrastructure, rolling out Zabbix proxy/agent monitoring with TLS across 6 K3s clusters via Helm and GitOps, closing critical alerting gaps.",
+      "Authored 25+ operational runbooks on Confluence covering incident response for MySQL replication/locking, Salt master failures, disk capacity, GitLab outages, and Kubernetes pod troubleshooting — standardizing on-call procedures across the DevOps team.",
+      "Executed major-version upgrades for core infrastructure (GitLab, Salt Stack, Zabbix), producing comprehensive test/production upgrade runbooks and coordinating zero-downtime cutovers for critical DevOps tooling.",
+    ],
   },
   {
     company: "Market America - SHOP.COM",
