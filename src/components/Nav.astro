@@ -84,7 +84,16 @@ const isCurrent = (href: string) =>
     z-index: 10;
     background: rgba(21, 21, 21, 0.92);
     backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--border);
+  }
+
+  .site-header::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
   }
 
   .header-inner {
