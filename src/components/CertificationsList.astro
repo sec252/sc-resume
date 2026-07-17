@@ -1,0 +1,51 @@
+---
+import { certifications } from "../data/certifications";
+---
+
+<ul class="certs">
+  {
+    certifications.map((cert) => (
+      <li>
+        <h3>
+          {cert.credentialUrl ? (
+            <a href={cert.credentialUrl} target="_blank" rel="noopener">
+              {cert.name}
+            </a>
+          ) : (
+            cert.name
+          )}
+        </h3>
+        <p class="issuer">
+          {cert.issuer}
+          {cert.date && ` · ${cert.date}`}
+        </p>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .certs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 1rem;
+    list-style: none;
+  }
+
+  li {
+    padding: 1.25rem 1.5rem;
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+  }
+
+  h3 {
+    font-size: 1rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .issuer {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+</style>

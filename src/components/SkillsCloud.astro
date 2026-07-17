@@ -1,0 +1,51 @@
+---
+import { skills } from "../data/skills";
+---
+
+<div class="skills">
+  {
+    skills.map((group) => (
+      <div class="skill-group">
+        <h3>{group.category}</h3>
+        <ul>
+          {group.items.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </div>
+    ))
+  }
+</div>
+
+<style>
+  .skills {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+    color: var(--text-muted);
+    font-family: var(--font-body);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.6rem;
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+  }
+
+  li {
+    padding: 0.35rem 0.85rem;
+    background: var(--bg-raised);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-size: 0.9rem;
+    color: var(--text);
+  }
+</style>

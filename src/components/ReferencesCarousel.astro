@@ -1,0 +1,170 @@
+---
+import { references } from "../data/references";
+---
+
+<div class="carousel">
+  <button class="nav prev" type="button" aria-label="Previous recommendation">
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M15 18l-6-6 6-6"></path>
+    </svg>
+  </button>
+
+  <ul class="track" tabindex="0" aria-label="Recommendations">
+    {
+      references.map((reference) => (
+        <li>
+          <p class="quote">“{reference.quote}”</p>
+          <p class="attribution">
+            {reference.name}
+            {reference.title && <span class="title"> · {reference.title}</span>}
+          </p>
+        </li>
+      ))
+    }
+  </ul>
+
+  <button class="nav next" type="button" aria-label="Next recommendation">
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M9 18l6-6-6-6"></path>
+    </svg>
+  </button>
+</div>
+
+<style>
+  .carousel {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .track {
+    display: flex;
+    flex: 1;
+    min-width: 0;
+    gap: 0;
+    list-style: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .track > li {
+    flex: 0 0 100%;
+    width: 100%;
+    scroll-snap-align: start;
+    padding: 1.25rem 1.75rem;
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    display: grid;
+    gap: 0.5rem;
+    align-content: center;
+  }
+
+  .quote {
+    color: var(--text);
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+
+  .attribution {
+    color: var(--text-strong);
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .title {
+    color: var(--text-muted);
+    font-weight: 400;
+    font-size: 0.85rem;
+  }
+
+  .nav {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--bg-alt);
+    color: var(--text);
+    cursor: pointer;
+  }
+
+  .nav:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  @media (max-width: 40rem) {
+    .nav {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  const track = document.querySelector<HTMLUListElement>(".track");
+  const prev = document.querySelector<HTMLButtonElement>(".prev");
+  const next = document.querySelector<HTMLButtonElement>(".next");
+
+  if (track) {
+    const items = Array.from(track.querySelectorAll<HTMLLIElement>("li"));
+    const total = items.length;
+    let currentIndex = 0;
+    let scrollTimeout: ReturnType<typeof setTimeout>;
+
+    function scrollToIndex(index: number) {
+      currentIndex = index;
+      items[index]?.scrollIntoView({
+        behavior: "smooth",
+        inline: "start",
+        block: "nearest",
+      });
+    }
+
+    prev?.addEventListener("click", () => {
+      scrollToIndex((currentIndex - 1 + total) % total);
+    });
+
+    next?.addEventListener("click", () => {
+      scrollToIndex((currentIndex + 1) % total);
+    });
+
+    // Keep currentIndex in sync with manual swipes/scrolling so the next
+    // button click continues from wherever the user actually landed.
+    track.addEventListener("scroll", () => {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        const cardWidth = items[0]?.clientWidth || track!.clientWidth;
+        currentIndex = Math.round(track!.scrollLeft / cardWidth);
+      }, 100);
+    });
+  }
+</script>
