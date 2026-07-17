@@ -134,13 +134,37 @@ import { references } from "../data/references";
   const prev = document.querySelector<HTMLButtonElement>(".prev");
   const next = document.querySelector<HTMLButtonElement>(".next");
 
-  function scrollByCard(direction: number) {
-    if (!track) return;
-    const card = track.querySelector("li");
-    const amount = card?.clientWidth ?? track.clientWidth;
-    track.scrollBy({ left: direction * amount, behavior: "smooth" });
-  }
+  if (track) {
+    const items = Array.from(track.querySelectorAll<HTMLLIElement>("li"));
+    const total = items.length;
+    let currentIndex = 0;
+    let scrollTimeout: ReturnType<typeof setTimeout>;
 
-  prev?.addEventListener("click", () => scrollByCard(-1));
-  next?.addEventListener("click", () => scrollByCard(1));
+    function scrollToIndex(index: number) {
+      currentIndex = index;
+      items[index]?.scrollIntoView({
+        behavior: "smooth",
+        inline: "start",
+        block: "nearest",
+      });
+    }
+
+    prev?.addEventListener("click", () => {
+      scrollToIndex((currentIndex - 1 + total) % total);
+    });
+
+    next?.addEventListener("click", () => {
+      scrollToIndex((currentIndex + 1) % total);
+    });
+
+    // Keep currentIndex in sync with manual swipes/scrolling so the next
+    // button click continues from wherever the user actually landed.
+    track.addEventListener("scroll", () => {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        const cardWidth = items[0]?.clientWidth || track!.clientWidth;
+        currentIndex = Math.round(track!.scrollLeft / cardWidth);
+      }, 100);
+    });
+  }
 </script>
