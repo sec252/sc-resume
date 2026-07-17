@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SkillsCloud from "../components/SkillsCloud.astro";
+import CertificationsList from "../components/CertificationsList.astro";
 import ExperienceTimeline from "../components/ExperienceTimeline.astro";
 import { site } from "../data/site";
 ---
@@ -34,6 +35,11 @@ import { site } from "../data/site";
     <section aria-labelledby="skills-heading">
       <h2 id="skills-heading">Skills</h2>
       <SkillsCloud />
+    </section>
+
+    <section aria-labelledby="certifications-heading">
+      <h2 id="certifications-heading">Certifications</h2>
+      <CertificationsList />
     </section>
 
     <section aria-labelledby="experience-heading">
