@@ -166,31 +166,39 @@ import { site } from "../data/site";
 
   if (el && !reduced) {
     const titles: string[] = JSON.parse(el.dataset.titles ?? "[]");
-    let titleIndex = Math.max(0, titles.indexOf(el.textContent?.trim() ?? ""));
-    let charIndex = titles[titleIndex]?.length ?? 0;
-    let deleting = true;
 
-    function tick() {
-      const title = titles[titleIndex] ?? "";
-      if (deleting) {
-        charIndex--;
-        if (charIndex <= 0) {
-          deleting = false;
-          titleIndex = (titleIndex + 1) % titles.length;
+    if (titles.length > 0) {
+      let titleIndex = 0;
+      let charIndex = 0;
+      let deleting = false;
+
+      function tick() {
+        const title = titles[titleIndex] ?? "";
+
+        if (deleting) {
+          charIndex--;
+          if (charIndex <= 0) {
+            deleting = false;
+            titleIndex++;
+          }
+        } else {
+          charIndex++;
+          if (charIndex >= title.length) {
+            el!.textContent = title;
+            // Last title fully typed — stop here instead of looping.
+            if (titleIndex >= titles.length - 1) return;
+            deleting = true;
+            setTimeout(tick, 2000);
+            return;
+          }
         }
-      } else {
-        charIndex++;
-        if (charIndex >= title.length) {
-          deleting = true;
-          setTimeout(tick, 2000);
-          el!.textContent = title;
-          return;
-        }
+
+        el!.textContent = title.slice(0, charIndex);
+        setTimeout(tick, deleting ? 40 : 70);
       }
-      el!.textContent = (titles[titleIndex] ?? "").slice(0, charIndex);
-      setTimeout(tick, deleting ? 40 : 70);
-    }
 
-    setTimeout(tick, 2000);
+      el.textContent = "";
+      setTimeout(tick, 400);
+    }
   }
 </script>
