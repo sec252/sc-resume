@@ -21,16 +21,14 @@ import { site } from "../data/site";
       <a href={site.resume.path} download class="btn">{site.resume.label}</a>
     </div>
     <div class="hero-img">
-      <div class="hex">
-        <Image
-          src={heroImage}
-          alt={`Portrait of ${site.name}`}
-          width={640}
-          widths={[320, 480, 640]}
-          sizes="(max-width: 47rem) 70vw, 320px"
-          loading="eager"
-        />
-      </div>
+      <Image
+        src={heroImage}
+        alt={`Portrait of ${site.name}`}
+        width={640}
+        widths={[320, 480, 640]}
+        sizes="(max-width: 47rem) 70vw, 320px"
+        loading="eager"
+      />
     </div>
   </div>
 </section>
@@ -93,47 +91,54 @@ import { site } from "../data/site";
     color: var(--text);
   }
 
-  /* Hexagon frame: outer div carries the glow (clip-path would otherwise
-     clip a box-shadow), .hex is the clipped accent "border" ring made from
-     padding + background, and the image gets its own matching clip. Both
-     .hex and the image share a vertical mask so the border dissolves away
-     over the top half instead of stopping at a hard edge, and the photo
-     fades out with it rather than staying hard-clipped underneath. */
   .hero-img {
     flex-shrink: 0;
-    width: 300px;
-    aspect-ratio: 0.88;
-    filter: drop-shadow(0 0 45px var(--accent-soft));
+    position: relative;
+    --bracket-size: 30px;
+    --bracket-thickness: 3px;
+    --bracket-offset: 12px;
   }
 
-  .hex {
-    width: 100%;
-    height: 100%;
-    padding: 4px;
-    background: var(--accent);
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    -webkit-mask-image: linear-gradient(
-      to top,
-      #000 0%,
-      #000 35%,
-      transparent 85%
-    );
-    mask-image: linear-gradient(to top, #000 0%, #000 35%, transparent 85%);
+  .hero-img img {
+    width: 320px;
+    border-radius: 14px;
+    box-shadow: 0 0 60px var(--accent-soft);
   }
 
-  .hex img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    -webkit-mask-image: linear-gradient(
-      to top,
-      #000 0%,
-      #000 35%,
-      transparent 85%
-    );
-    mask-image: linear-gradient(to top, #000 0%, #000 35%, transparent 85%);
+  /* HUD-style corner brackets: 8 gradient strips, 2 per corner */
+  .hero-img::before {
+    content: "";
+    position: absolute;
+    inset: calc(-1 * var(--bracket-offset));
+    pointer-events: none;
+    background-image:
+      linear-gradient(var(--accent), var(--accent)),
+      linear-gradient(var(--accent), var(--accent)),
+      linear-gradient(var(--accent), var(--accent)),
+      linear-gradient(var(--accent), var(--accent)),
+      linear-gradient(var(--accent), var(--accent)),
+      linear-gradient(var(--accent), var(--accent)),
+      linear-gradient(var(--accent), var(--accent)),
+      linear-gradient(var(--accent), var(--accent));
+    background-size:
+      var(--bracket-size) var(--bracket-thickness),
+      var(--bracket-thickness) var(--bracket-size),
+      var(--bracket-size) var(--bracket-thickness),
+      var(--bracket-thickness) var(--bracket-size),
+      var(--bracket-size) var(--bracket-thickness),
+      var(--bracket-thickness) var(--bracket-size),
+      var(--bracket-size) var(--bracket-thickness),
+      var(--bracket-thickness) var(--bracket-size);
+    background-position:
+      top left,
+      top left,
+      top right,
+      top right,
+      bottom left,
+      bottom left,
+      bottom right,
+      bottom right;
+    background-repeat: no-repeat;
   }
 
   @media (max-width: 47rem) {
@@ -145,7 +150,12 @@ import { site } from "../data/site";
 
     .hero-img {
       align-self: center;
-      width: min(70vw, 240px);
+      --bracket-size: 24px;
+      --bracket-offset: 10px;
+    }
+
+    .hero-img img {
+      width: min(70vw, 260px);
     }
   }
 </style>
