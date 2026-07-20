@@ -19,8 +19,8 @@ export const site = {
     url: "https://www.linkedin.com/in/secii/",
   },
   blog: {
-    label: "NullExport on Substack",
-    url: "https://nullexport.substack.com/",
+    label: "NullExport",
+    url: "https://nullexport.com/",
   },
   resume: {
     label: "Download Resume",

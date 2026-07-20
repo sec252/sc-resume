@@ -44,7 +44,7 @@ Every push to `main` builds and deploys via `.github/workflows/deploy.yml`. The 
 
 - Email: sec252@gmail.com
 - LinkedIn: [Samuel Chance](https://www.linkedin.com/in/secii/)
-- Blog: [NullExport on Substack](https://nullexport.substack.com/)
+- Blog: [NullExport](https://nullexport.com/)
 
 ## License
 
